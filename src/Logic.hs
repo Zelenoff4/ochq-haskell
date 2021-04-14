@@ -148,7 +148,8 @@ processMenuMouseClick game mousePos@(x, y)
         in case (abs $ middle - y) < 2 of
                 True -> case middle - x of
                              1    -> exitSuccess
-                             (-1) -> startGame $ gameSocket game
+                             --(-1) -> startGame $ gameSocket game
+                             (-1) -> processNext game {gameState = Betting}
                              0    -> return game {gameState = Settings}
                              _    -> return game
                 _    -> return game
@@ -202,7 +203,7 @@ transformGame (EventKey key Up _ _) game
 transformGame _ game = return game
 
 
-takeGameFromServer :: MVar Game -> Float -> Game -> IO Game
+{-takeGameFromServer :: MVar Game -> Float -> Game -> IO Game
 takeGameFromServer mvarGame _ game = do
     let sock = gameSocket game
     tmp <- (recv (fromJust sock) 20000)
@@ -229,3 +230,4 @@ transformGame' _ _ game = return game
 chooseTransformer :: Maybe Socket -> MVar Game -> Event -> Game -> IO Game
 chooseTransformer Nothing _ = transformGame
 chooseTransformer (Just _) mgame = transformGame' mgame
+-}

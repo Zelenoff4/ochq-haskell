@@ -4,7 +4,7 @@ import Data.List
 import Text.Printf
 import qualified Data.Map as Map
 
-import Cards
+import Cards hiding (Score, Moscow, dealCards, countHandScore)
 
 playersMap :: Map.Map String Money
 playersMap = Map.fromList [(,) "Maxim" 100, (,) "Test" 1000]

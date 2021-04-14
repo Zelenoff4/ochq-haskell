@@ -240,7 +240,7 @@ htpButton =
 
 menuAsPicture :: Game -> Picture
 menuAsPicture _ =
-    pictures [ snapPictureToCell backgroundRect (middle, middle) 0.5
+    pictures [ snapPictureToCell backgroundRect (middle, middle) 1.5
              -- , boardGrid
              , startButton
              , exitButton
